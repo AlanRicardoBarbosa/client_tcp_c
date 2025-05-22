@@ -20,7 +20,7 @@ int main(){
 
 	inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr);
 
-	connect(sock, (struct serv_add *)&serv_addr, sizeof(serv_addr));
+	connect(sock, (struct serv_addr *)&serv_addr, sizeof(serv_addr));
 	
 	char message[1024];
 	char buffer[1024];
