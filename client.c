@@ -21,4 +21,13 @@ int main(){
 	inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr);
 
 	connect(sock, (struct serv_add *)&serv_addr, sizeof(serv_addr));
+
+	char *hello = "Hello World!";
+	send(sock, hello, strlen(hello), 0);
+
+	char buffer [1024] = {0};
+	read(sock, buffer, 1024);
+	printf("Server: %s\n", buffer);
+
+	return 0;
 }
