@@ -21,7 +21,7 @@ int main(){
 	inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr);
 
 	connect(sock, (struct serv_addr *)&serv_addr, sizeof(serv_addr));
-	
+
 	char message[1024];
 	char buffer[1024];
 
@@ -30,6 +30,7 @@ int main(){
 		fgets(message, 1024, stdin);
 		send(sock, message, strlen(message), 0);
 		if(strcmp(message, "exit\n") == 0) {
+			printf("Terminating connection... See you soon! >.> <.<\n");
 			break;
 		}	
 		memset(buffer, 0, sizeof(buffer));
