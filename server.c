@@ -21,21 +21,26 @@ int main(){
 
 	bind(sock, (struct serv_addr *)&serv_addr, sizeof(serv_addr));
 	listen(sock, 5);
+	int addrlen = sizeof(serv_addr);
+	int connection = accept(sock, (struct serv_addr *)&serv_addr, (socklen_t*)&addrlen);
 
 	char message[1024];
 	char buffer[1024];
 
 	while (1) {
+		read(connection, buffer, 1024);
+		printf("Client: %s\n", buffer);
 		printf("Write your message: ");
 		fgets(message, 1024, stdin);
-		send(sock, message, strlen(message), 0);
+		send(connection, message, strlen(message), 0);
 		if(strcmp(message, "exit\n") == 0) {
 			printf("Terminating connection... See you soon! >.> <.<\n");
 			break;
 		}	
-		memset(buffer, 0, sizeof(buffer));
-		read(sock, buffer, 1024);
-		printf("Server: %s\n", buffer);
+		
 }
+	
+	close(connection);
+	close(sock);
 	return 0;
 }
