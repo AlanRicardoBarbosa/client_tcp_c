@@ -37,3 +37,9 @@
 - This code is provided as-is for educational purposes. Feel free to modify and use it as needed.
 
 # Simple TCP server
+
+I'll work on it later. Be patient. 
+
+# Simple TCP CONNECTION 
+
+Heres is the same. xD
