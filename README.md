@@ -35,3 +35,5 @@
 - This is a simple demonstration without robust error handling
 - Messages are limited to 1024 bytes
 - This code is provided as-is for educational purposes. Feel free to modify and use it as needed.
+
+# Simple TCP server
